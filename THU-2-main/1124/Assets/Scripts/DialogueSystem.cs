@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 namespace LUCIEN
 {
@@ -23,8 +25,12 @@ namespace LUCIEN
         private CanvasGroup groupDialogue;
         private TextMeshProUGUI textName;
         private TextMeshProUGUI textContent;
-        private GameObject gotriangle; 
+        private GameObject gotriangle;
         #endregion
+
+        private PlayerInput playerInput;  //玩家輸入元件
+
+        private UnityEvent onDialogueFinish;
 
         #region 事件
         private void Awake()
@@ -36,14 +42,23 @@ namespace LUCIEN
             gotriangle = GameObject.Find("對話完成圖示");
             gotriangle.SetActive(false);
 
+            playerInput = GameObject.Find("PlayerCapsule").GetComponent<PlayerInput>();
             StartDialogue(DialogueOpening);           
-        } 
+        }
         #endregion
 
-        public void StartDialogue(DialogueData data)
+
+        /// <summary>
+        /// 開始對話
+        /// </summary>
+        /// <param name="data">要執行的對話資料</param>
+        /// <param name="_onDialogueFinish">對話結束後的事件，可以空值</param>
+        public void StartDialogue(DialogueData data, UnityEvent _onDialogueFinish = null)
         {
+            playerInput.enabled = false;  //關閉 玩家輸入元件
             StartCoroutine(FadeGroup());
             StartCoroutine(TypeEffect(data));
+            onDialogueFinish = _onDialogueFinish;
         }       
 
         /// <summary>
@@ -98,6 +113,11 @@ namespace LUCIEN
             }
 
             StartCoroutine(FadeGroup(false));
+
+            playerInput.enabled = true; //開啟 玩家輸入元件
+
+            // ?. 當onDialogueFinish 沒有值時就不執行
+            onDialogueFinish?.Invoke();  //對話結束事件?.呼叫()
         }
     }
 }
