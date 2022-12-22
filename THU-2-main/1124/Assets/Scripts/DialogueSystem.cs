@@ -57,7 +57,7 @@ namespace LUCIEN
             // true ？ 1 ： 10; 結果為 1
             // false ？ 1 ： 10; 結果為 10
 
-            float increase = fadeIn ？ +0.1f ： -0.1f;
+            float increase = fadeIn? +0.1f : -0.1f;
 
             for (int i = 0; i < 10; i++)
             {
