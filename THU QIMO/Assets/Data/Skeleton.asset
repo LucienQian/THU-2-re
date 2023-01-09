@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69247374c8b7a974c9818243bfc150c0, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  dialogueName: ??
+  dialogueName: "\uFF1F\uFF1F"
   dialogueContents:
   - "......\u51FA\u53BB......\u6211\u8981\u51FA\u53BB\uFF01\uFF01\uFF01"

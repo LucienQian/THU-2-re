@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69247374c8b7a974c9818243bfc150c0, type: 3}
   m_Name: Cup
   m_EditorClassIdentifier: 
-  dialogueName: "\u91D1\u76DE \u9152\u676F"
+  dialogueName: "\uFF1F\uFF1F"
   dialogueContents:
-  - "\u76F4\u9762\u547D\u904B\u5427 \u4F60\u6B98\u9B42\u9B44 \u5E7D\u653E \u5C6C\u65BC\u91D1\u584A
-    \u5929\u5E73\u67B0 \u56DE\u53BB"
+  - "\u4F86\u5427......\u5FEB\u4F86\u5427"
